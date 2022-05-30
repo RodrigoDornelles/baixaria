@@ -18,6 +18,7 @@ ARCH = macho64
 LDFLAGS = -macosx_version_min 10.7.0 -lSystem -no_pie
 endif
 ifeq ($(detected_OS),Linux)
+ARCH = elf64
 SRCS = $(wildcard x86/*/linux.s)
 endif
 
