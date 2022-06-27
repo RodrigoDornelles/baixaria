@@ -1,6 +1,6 @@
 section .data
-message:
-    db "Hello world!", 0xa, 0xd
+txt: db "Hello world!", 0xa, 0xd    ; txt is the starting point of the string
+len: equ $ - txt                    ; $ is the current point in program memory
 
 section .text
 
@@ -14,7 +14,7 @@ section .text
 
 global start:
 start:
-    msg message, 14     ; expand macro
+    msg txt, len        ; expand macro
 
     mov rax, 0x2000001  ; syscall: exit
     mov rdi, 0          ; code success
